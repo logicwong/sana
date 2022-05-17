@@ -37,9 +37,14 @@ The original data was downloaded from [wiki2bio](https://github.com/tyliupku/wik
 
 ## preprocess
 ```
+# extract box from the original data
 cd dataset
-python3 preprocess_wikibio.py # extract box from the original data
+python3 preprocess_wikibio.py
 python3 file2fairseq.py
+
+# extract data for PARENT evaluation
+cd utils/parent
+python3 process_table.py
 ```
 
 ## Stage1 (Sketch)
