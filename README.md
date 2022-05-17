@@ -26,7 +26,7 @@ export CUDA_HOME=/usr/local/cuda
 python setup.py build_ext --inplace
 ```
 
-We recommand installing NVIDIA's [apex](https://github.com/NVIDIA/apex) library for faster training.
+We recommend installing NVIDIA's [apex](https://github.com/NVIDIA/apex) library for faster training.
 <br></br>
 
 # DATA
@@ -37,7 +37,7 @@ The original data was downloaded from [wiki2bio](https://github.com/tyliupku/wik
 
 ## preprocess
 ```
-# extract box from the original data
+# extract table from the original data
 cd dataset
 python3 preprocess_wikibio.py
 python3 file2fairseq.py
