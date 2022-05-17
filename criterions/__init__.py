@@ -1,0 +1,2 @@
+from .label_smoothed_cross_entropy import AdjustLabelSmoothedCrossEntropyCriterion
+from .nat_loss import AdjustLabelSmoothedDualImitationCriterion
