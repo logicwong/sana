@@ -36,7 +36,7 @@ The original data was downloaded from [wiki2bio](https://github.com/tyliupku/wik
 # Usage
 
 ## preprocess
-Preprocess the original data. The processed files include field (attribute), value (attribute value), lpos (forward position of value in the attribute), rpos (reverse position of value in the attribute), tgt (description)
+Preprocess the original data. The processed files contains field (attribute), value (attribute value), lpos (forward position of value in the attribute), rpos (reverse position of value in the attribute), tgt (description)
 
 ```
 # extract table from the original data
