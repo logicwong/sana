@@ -8,4 +8,4 @@ python ../../preprocess.py \
 --destdir $DEST \
 --srcdict $TEXT/dict.sketch.txt --tgtdict $TEXT/dict.sketch.txt \
 --workers 64 \
---nwordsfield 6000 --nwordslpos 30 --nwordsrpos 30
+--nwordsfield 6000
