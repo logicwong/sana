@@ -27,24 +27,31 @@ def split_infobox():
         for ib in box:
             item = ib.split('\t')
             box_single_word, box_single_label, box_single_pos = [], [], []
+            prev_label = ''
+            add_pos = 0
             for it in item:
                 if len(it.split(':')) > 2:
                     continue
                 # print it
                 prefix, word = it.split(':')
-                word = word.strip().split()[0]
                 if '<none>' in word or word.strip() == '' or prefix.strip() == '':
                     continue
                 new_label = re.sub("_[1-9]\d*$", "", prefix)
                 if new_label.strip() == "":
                     continue
-                box_single_word.append(word)
-                box_single_label.append(new_label)
-                if re.search("_[1-9]\d*$", prefix):
-                    field_id = int(prefix.split('_')[-1])
-                    box_single_pos.append(field_id if field_id <= 30 else 30)
-                else:
-                    box_single_pos.append(1)
+                add_pos = 0 if prev_label != new_label else add_pos
+                prev_label = new_label
+                for i, w in enumerate(word.strip().split()):
+                    add_pos += 1 if i != 0 else 0
+                    box_single_word.append(w)
+                    box_single_label.append(new_label)
+                    if re.search("_[1-9]\d*$", prefix):
+                        field_id = int(prefix.split('_')[-1])
+                        pos_id = field_id + add_pos
+                        box_single_pos.append(pos_id if pos_id <= 35 else 35)
+                    else:
+                        pos_id = 1 + add_pos
+                        box_single_pos.append(pos_id if pos_id <= 35 else 35)
             box_word.append(box_single_word)
             box_label.append(box_single_label)
             box_pos.append(box_single_pos)
